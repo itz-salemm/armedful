@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-i(twrab*1_=&&kvo_vn1_t4&ngbgw0rzkje!dlpwfcs4j6(nn=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['armedd.herokuapp.com/', '127.0.0.1']
 
 
 # Application definition
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -77,8 +78,12 @@ WSGI_APPLICATION = 'armed.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'armedd',
+        'PASSWORD': 'armed12345',
+        'HOST': 'armed.cqxwip1ioxod.us-east-2.rds.amazonaws.com',
+        'PORT': '5432'
     }
 }
 
@@ -129,6 +134,11 @@ STATICFILES_DIRS = [
 ]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# https://docs.djangoproject.com/en/1.11/howto/static-files/
+PROJECT_ROOT   =   os.path.join(os.path.abspath(__file__))
+STATIC_ROOT  =   os.path.join(PROJECT_ROOT, 'staticfiles')
+
 
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')

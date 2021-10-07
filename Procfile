@@ -1,0 +1,1 @@
+web: gunicorn armed.wsgi --log-file -
