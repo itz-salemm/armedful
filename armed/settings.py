@@ -80,10 +80,10 @@ WSGI_APPLICATION = 'armed.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'armedd',
-        'USER': 'armedd',
-        'PASSWORD': 'armedd12345',
-        'HOST': 'armedd.cqxwip1ioxod.us-east-2.rds.amazonaws.com',
+        'NAME': 'armeddd',
+        'USER': 'armeddd',
+        'PASSWORD': 'armeddd12345',
+        'HOST': 'armeddd.crky75dionik.us-east-2.rds.amazonaws.com',
         'PORT': '5432'
     }
 }
